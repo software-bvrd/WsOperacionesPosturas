@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5a06da7cd00c45978c14555c7a8514d7" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="BIModel.vConsultaOrdenesFirme" Width="2" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIModel.vUsuarios" Width="1.875" PointX="2.625" PointY="1.125" />
+        <EntityTypeShape EntityType="BIModel.VOPERACIONES" Width="1.5" PointX="4.875" PointY="1.125" />
+        <EntityTypeShape EntityType="BIModel.vConsultaEmisionesWEB" Width="2.375" PointX="6.625" PointY="1.125" />
+        <EntityTypeShape EntityType="BIModel.VOrdenesFirmePropias" Width="2.375" PointX="9.125" PointY="1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

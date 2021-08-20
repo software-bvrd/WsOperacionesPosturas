@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/WsBVRD_deploy" />
+  <setParameter name="BIEntities-Web.config Connection String" value="metadata=res://*/BI.csdl|res://*/BI.ssdl|res://*/BI.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=rds-cloud.bvrd-connect.com;initial catalog=BI;persist security info=True;user id=bi;password=d@$b0ard!;MultipleActiveResultSets=True;App=EntityFramework&quot;" />
+</parameters>

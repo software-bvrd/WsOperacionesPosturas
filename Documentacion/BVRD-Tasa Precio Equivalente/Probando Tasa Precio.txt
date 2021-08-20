@@ -1,0 +1,11 @@
+http://52.205.251.74/PrecioTasaEquivalente/PrecioTasaEquivalente.dll
+
+WsPrecioTasaEquivalente
+WSCalculoPrecioTasaEquivalenteIntf-IWSCalculoPrecioTasaEquivalente#CalcularPrecioTasaEquivalente
+
+http://ec2-52-205-251-74.compute-1.amazonaws.com/wsSistemaInternoSiopel/wsSistemaInternoSiopel.dll/wsdl/IwsSistemaInternoSiopel
+
+http://www.soapclient.com/soapclient?template=%2Fclientform.html&fn=soapform&SoapTemplate=%2FSoapResult.html&SoapWSDL=http%3A%2F%2F52.205.251.74%2FPrecioTasaEquivalente%2FPrecioTasaEquivalente.dll%2Fwsdl%2FIWSCalculoPrecioTasaEquivalente%3FWSDL&_ArraySize=2
+
+http://52.205.251.74/PrecioTasaEquivalente/PrecioTasaEquivalente.dll/wsdl/IWSCalculoPrecioTasaEquivalente?WSDL
+http://52.205.251.74/PrecioTasaEquivalente/PrecioTasaEquivalente.dll/soap/IWSCalculoPrecioTasaEquivalente

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="vConsultaOrdenesFirme">
+    <Key>
+      <PropertyRef Name="PosicionCompraVenta" />
+      <PropertyRef Name="NroOperacionVinculada" />
+      <PropertyRef Name="Secuencia" />
+    </Key>
+    <Property Name="Código_Local" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Código_ISIN" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Fecha_de_Vencimiento" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_de_Postura" Type="DateTime" Precision="3" />
+    <Property Name="Hora" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="Moneda_de_Liquidación" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Valor_Nominal_Pesos" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Valor_Nominal_Dólares" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Precio" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Yield" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Valor_Transado_Pesos" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Valor_Transado_Dólares" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Fecha_de_Modificación" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Mercado" Type="Int32" />
+    <Property Name="Duracion" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Secuencia" Type="Int32" Nullable="false" />
+    <Property Name="Código_Rueda" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PosicionCompraVenta" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NroOperacionVinculada" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BIEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="vConsultaOrdenesFirme" EntityType="Self.vConsultaOrdenesFirme" />
+    <FunctionImport Name="WS_AUTENTICARUSUARIO" ReturnType="Collection(BIModel.WS_AUTENTICARUSUARIO_Result)">
+      <Parameter Name="USUARIO" Mode="In" Type="String" />
+      <Parameter Name="CLAVE" Mode="In" Type="String" />
+      <Parameter Name="SERVICIOID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="vUsuarios" EntityType="BIModel.vUsuarios" />
+    <FunctionImport Name="WS_VALIDARTOKEN" ReturnType="Collection(BIModel.WS_VALIDARTOKEN_Result)">
+      <Parameter Name="TOKEN" Mode="In" Type="String" />
+      <Parameter Name="SERVICIOID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="WS_OPERACIONES" ReturnType="Collection(BIModel.WS_OPERACIONES_Result)">
+      <Parameter Name="ENTIDAD" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="VOPERACIONES" EntityType="BIModel.VOPERACIONES" />
+    <EntitySet Name="vConsultaEmisionesWEB" EntityType="BIModel.vConsultaEmisionesWEB" />
+    <EntitySet Name="VOrdenesFirmePropias" EntityType="BIModel.VOrdenesFirmePropias" />
+  </EntityContainer>
+  <ComplexType Name="WS_AUTENTICARUSUARIO_Result">
+    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="NOMBREENTIDAD" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SERVICIO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TOKEN" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="NOMBREENTIDADID" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="vUsuarios">
+    <Key>
+      <PropertyRef Name="NOMBRE" />
+      <PropertyRef Name="TOKEN" />
+      <PropertyRef Name="NOMBREENTIDADID" />
+    </Key>
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBREENTIDAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SERVICIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TOKEN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBREENTIDADID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="WS_VALIDARTOKEN_Result">
+    <Property Type="String" Name="TOKEN" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="USUARIO" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="FECHA" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="SERVICIOID" Nullable="false" />
+    <Property Type="DateTime" Name="FECHADIGITACION" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NOMBREENTIDADID" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="WS_OPERACIONES_Result">
+    <Property Type="String" Name="CodigoISIN" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="ValorNominalTotal" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="CantidadTitulos" Nullable="true" Precision="12" Scale="0" />
+    <Property Type="Decimal" Name="MontoLimpio" Nullable="true" Precision="38" Scale="9" />
+    <Property Type="Decimal" Name="MontoSucio" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="PrecioLimpio" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="Yield" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="PrecioSucio" Nullable="true" Precision="38" Scale="16" />
+    <Property Type="DateTime" Name="FechaCierre" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaValor" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NombrePuestoComprador" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="NombrePuestoVendedor" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TipoOperacion" Nullable="true" MaxLength="13" />
+    <Property Type="String" Name="NombreMercado" Nullable="true" MaxLength="35" />
+  </ComplexType>
+  <EntityType Name="VOPERACIONES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+    <Property Name="CodigoISIN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ValorNominalTotal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CantidadTitulos" Type="Decimal" Precision="12" Scale="0" />
+    <Property Name="MontoLimpio" Type="Decimal" Precision="38" Scale="9" />
+    <Property Name="MontoSucio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PrecioLimpio" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Yield" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="PrecioSucio" Type="Decimal" Precision="38" Scale="16" />
+    <Property Name="FechaCierre" Type="DateTime" Precision="3" />
+    <Property Name="FechaValor" Type="DateTime" Precision="3" />
+    <Property Name="NombrePuestoComprador" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NombrePuestoVendedor" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="TipoOperacion" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="NombreMercado" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="PuestoComprador" Type="String" MaxLength="8" FixedLength="false" Unicode="false" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Internal" />
+    <Property Name="PuestoVendedor" Type="String" MaxLength="8" FixedLength="false" Unicode="false" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Internal" />
+    <Property Name="Estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vConsultaEmisionesWEB">
+    <Key>
+      <PropertyRef Name="ValorNominal" />
+      <PropertyRef Name="PuestoBolsaCodigos" />
+      <PropertyRef Name="Calificacion" />
+      <PropertyRef Name="Monto_Emitido" />
+    </Key>
+    <Property Name="ISIN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CodEnSistema" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="FechaEmision" Type="DateTime" Precision="0" />
+    <Property Name="FechaVencimiento" Type="DateTime" Precision="0" />
+    <Property Name="ValorNominal" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Moneda" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TipoTasa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NombreTitulo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BaseLiquidacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NombrePeriodo" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Cupon" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="TipoAmortizacionCapital" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="PuestoBolsaCodigos" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="MontoTotalDeLaEmision" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Calificacion" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="TipoEmisor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Monto_Emitido" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="FormaColocacionNombre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VOrdenesFirmePropias">
+    <Key>
+      <PropertyRef Name="ValorTransado" />
+      <PropertyRef Name="PosicionCompraVenta" />
+    </Key>
+    <Property Name="Nemotecnico" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="ISIN" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="MonedaLiquidacion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NominalUnitario" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TasaCupon" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="FechaPostura" Type="DateTime" Precision="0" />
+    <Property Name="HoraPostura" Type="Time" Precision="7" />
+    <Property Name="ValorNominal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ValorTransado" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Precio" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Rendimiento" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="HoraUltimaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="PuestodeBolsa" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Secuencia" Type="Int32" />
+    <Property Name="CODRUEDA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PosicionCompraVenta" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Duracion" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="PlazoLiquidacion" Type="Int32" />
+    <Property Name="FechaLiquidacion" Type="DateTime" Precision="3" />
+    <Property Name="NroOperacionVinculada" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

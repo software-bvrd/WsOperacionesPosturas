@@ -1,0 +1,168 @@
+﻿@model WsBVRD.VOrdenesFirmePropias
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>VOrdenesFirmePropias</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nemotecnico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nemotecnico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonedaLiquidacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonedaLiquidacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NominalUnitario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NominalUnitario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TasaCupon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TasaCupon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaPostura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaPostura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraPostura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraPostura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorNominal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorNominal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rendimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rendimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraUltimaModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraUltimaModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PuestodeBolsa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PuestodeBolsa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Secuencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Secuencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CODRUEDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CODRUEDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duracion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duracion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlazoLiquidacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlazoLiquidacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaLiquidacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaLiquidacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NroOperacionVinculada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NroOperacionVinculada)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

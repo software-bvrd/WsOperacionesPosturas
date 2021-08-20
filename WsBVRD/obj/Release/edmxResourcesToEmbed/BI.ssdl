@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BI.dbo.vConsultaEmisionesWEB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vConsultaEmisionesWEB">
+    <Key>
+      <PropertyRef Name="ValorNominal" />
+      <PropertyRef Name="PuestoBolsaCodigos" />
+      <PropertyRef Name="Calificacion" />
+      <PropertyRef Name="Monto_Emitido" />
+    </Key>
+    <Property Name="ISIN" Type="nvarchar" MaxLength="20" />
+    <Property Name="CodEnSistema" Type="nchar" MaxLength="30" />
+    <Property Name="FechaEmision" Type="date" />
+    <Property Name="FechaVencimiento" Type="date" />
+    <Property Name="ValorNominal" Type="money" Nullable="false" />
+    <Property Name="Moneda" Type="nvarchar" MaxLength="10" />
+    <Property Name="TipoTasa" Type="nvarchar" MaxLength="20" />
+    <Property Name="NombreTitulo" Type="nvarchar" MaxLength="100" />
+    <Property Name="BaseLiquidacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="NombrePeriodo" Type="nchar" MaxLength="100" />
+    <Property Name="Cupon" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="TipoAmortizacionCapital" Type="nchar" MaxLength="30" />
+    <Property Name="PuestoBolsaCodigos" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="MontoTotalDeLaEmision" Type="money" />
+    <Property Name="Calificacion" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="TipoEmisor" Type="nvarchar" MaxLength="30" />
+    <Property Name="Monto_Emitido" Type="money" Nullable="false" />
+    <Property Name="FormaColocacionNombre" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BI.dbo.vConsultaOrdenesFirme' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vConsultaOrdenesFirme">
+    <Key>
+      <PropertyRef Name="PosicionCompraVenta" />
+      <PropertyRef Name="NroOperacionVinculada" />
+      <PropertyRef Name="Secuencia" />
+    </Key>
+    <Property Name="Código Local" Type="nchar" MaxLength="20" />
+    <Property Name="Código ISIN" Type="nchar" MaxLength="20" />
+    <Property Name="Fecha de Vencimiento" Type="datetime" />
+    <Property Name="Fecha de Postura" Type="datetime" />
+    <Property Name="Hora" Type="varchar" MaxLength="8000" />
+    <Property Name="Moneda de Liquidación" Type="nchar" MaxLength="10" />
+    <Property Name="Valor Nominal Pesos" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Valor Nominal Dólares" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Precio" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="Yield" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Valor Transado Pesos" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Valor Transado Dólares" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Fecha de Modificación" Type="varchar" MaxLength="10" />
+    <Property Name="Mercado" Type="int" />
+    <Property Name="Duracion" Type="varchar" MaxLength="8" />
+    <Property Name="Secuencia" Type="int" Nullable="false" />
+    <Property Name="Código Rueda" Type="varchar" MaxLength="4" />
+    <Property Name="PosicionCompraVenta" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="NroOperacionVinculada" Type="varchar" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BI.dbo.VOPERACIONES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VOPERACIONES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="CodigoISIN" Type="nvarchar" MaxLength="20" />
+    <Property Name="ValorNominalTotal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CantidadTitulos" Type="decimal" Precision="12" Scale="0" />
+    <Property Name="MontoLimpio" Type="decimal" Precision="38" Scale="9" />
+    <Property Name="MontoSucio" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PrecioLimpio" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="Yield" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="PrecioSucio" Type="decimal" Precision="38" Scale="16" />
+    <Property Name="FechaCierre" Type="datetime" />
+    <Property Name="FechaValor" Type="datetime" />
+    <Property Name="NombrePuestoComprador" Type="nchar" MaxLength="100" />
+    <Property Name="NombrePuestoVendedor" Type="nchar" MaxLength="100" />
+    <Property Name="TipoOperacion" Type="varchar" MaxLength="13" />
+    <Property Name="NombreMercado" Type="varchar" MaxLength="35" />
+    <Property Name="PuestoComprador" Type="varchar" MaxLength="8" />
+    <Property Name="PuestoVendedor" Type="varchar" MaxLength="8" />
+    <Property Name="Estatus" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BI.dbo.VOrdenesFirmePropias' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VOrdenesFirmePropias">
+    <Key>
+      <PropertyRef Name="ValorTransado" />
+      <PropertyRef Name="PosicionCompraVenta" />
+    </Key>
+    <Property Name="Nemotecnico" Type="nchar" MaxLength="20" />
+    <Property Name="ISIN" Type="nchar" MaxLength="20" />
+    <Property Name="MonedaLiquidacion" Type="nchar" MaxLength="10" />
+    <Property Name="NominalUnitario" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TasaCupon" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="FechaPostura" Type="date" />
+    <Property Name="HoraPostura" Type="time" Precision="7" />
+    <Property Name="ValorNominal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ValorTransado" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Precio" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="Rendimiento" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="HoraUltimaModificacion" Type="datetime" />
+    <Property Name="PuestodeBolsa" Type="nchar" MaxLength="20" />
+    <Property Name="Secuencia" Type="int" />
+    <Property Name="CODRUEDA" Type="varchar" MaxLength="4" />
+    <Property Name="PosicionCompraVenta" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Duracion" Type="varchar" MaxLength="8" />
+    <Property Name="PlazoLiquidacion" Type="int" />
+    <Property Name="FechaLiquidacion" Type="datetime" />
+    <Property Name="NroOperacionVinculada" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BI.dbo.vUsuarios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vUsuarios">
+    <Key>
+      <PropertyRef Name="NOMBRE" />
+      <PropertyRef Name="NOMBREENTIDADID" />
+      <PropertyRef Name="TOKEN" />
+    </Key>
+    <Property Name="NOMBRE" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="NOMBREENTIDADID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NOMBREENTIDAD" Type="varchar" MaxLength="50" />
+    <Property Name="SERVICIO" Type="varchar" MaxLength="50" />
+    <Property Name="TOKEN" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Function Name="WS_AUTENTICARUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+    <Parameter Name="CLAVE" Type="varchar" Mode="In" />
+    <Parameter Name="SERVICIOID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="WS_OPERACIONES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ENTIDAD" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="WS_VALIDARTOKEN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TOKEN" Type="varchar" Mode="In" />
+    <Parameter Name="SERVICIOID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="BIModelStoreContainer">
+    <EntitySet Name="vConsultaEmisionesWEB" EntityType="Self.vConsultaEmisionesWEB" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[vConsultaEmisionesWEB].[ISIN] AS [ISIN], 
+[vConsultaEmisionesWEB].[CodEnSistema] AS [CodEnSistema], 
+[vConsultaEmisionesWEB].[FechaEmision] AS [FechaEmision], 
+[vConsultaEmisionesWEB].[FechaVencimiento] AS [FechaVencimiento], 
+[vConsultaEmisionesWEB].[ValorNominal] AS [ValorNominal], 
+[vConsultaEmisionesWEB].[Moneda] AS [Moneda], 
+[vConsultaEmisionesWEB].[TipoTasa] AS [TipoTasa], 
+[vConsultaEmisionesWEB].[NombreTitulo] AS [NombreTitulo], 
+[vConsultaEmisionesWEB].[BaseLiquidacion] AS [BaseLiquidacion], 
+[vConsultaEmisionesWEB].[NombrePeriodo] AS [NombrePeriodo], 
+[vConsultaEmisionesWEB].[Cupon] AS [Cupon], 
+[vConsultaEmisionesWEB].[TipoAmortizacionCapital] AS [TipoAmortizacionCapital], 
+[vConsultaEmisionesWEB].[PuestoBolsaCodigos] AS [PuestoBolsaCodigos], 
+[vConsultaEmisionesWEB].[MontoTotalDeLaEmision] AS [MontoTotalDeLaEmision], 
+[vConsultaEmisionesWEB].[Calificacion] AS [Calificacion], 
+[vConsultaEmisionesWEB].[TipoEmisor] AS [TipoEmisor], 
+[vConsultaEmisionesWEB].[Monto_Emitido] AS [Monto_Emitido], 
+[vConsultaEmisionesWEB].[FormaColocacionNombre] AS [FormaColocacionNombre]
+FROM [dbo].[vConsultaEmisionesWEB] AS [vConsultaEmisionesWEB]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vConsultaOrdenesFirme" EntityType="Self.vConsultaOrdenesFirme" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[vConsultaOrdenesFirme].[Código Local] AS [Código Local], 
+[vConsultaOrdenesFirme].[Código ISIN] AS [Código ISIN], 
+[vConsultaOrdenesFirme].[Fecha de Vencimiento] AS [Fecha de Vencimiento], 
+[vConsultaOrdenesFirme].[Fecha de Postura] AS [Fecha de Postura], 
+[vConsultaOrdenesFirme].[Hora] AS [Hora], 
+[vConsultaOrdenesFirme].[Moneda de Liquidación] AS [Moneda de Liquidación], 
+[vConsultaOrdenesFirme].[Valor Nominal Pesos] AS [Valor Nominal Pesos], 
+[vConsultaOrdenesFirme].[Valor Nominal Dólares] AS [Valor Nominal Dólares], 
+[vConsultaOrdenesFirme].[Precio] AS [Precio], 
+[vConsultaOrdenesFirme].[Yield] AS [Yield], 
+[vConsultaOrdenesFirme].[Valor Transado Pesos] AS [Valor Transado Pesos], 
+[vConsultaOrdenesFirme].[Valor Transado Dólares] AS [Valor Transado Dólares], 
+[vConsultaOrdenesFirme].[Fecha de Modificación] AS [Fecha de Modificación], 
+[vConsultaOrdenesFirme].[Mercado] AS [Mercado], 
+[vConsultaOrdenesFirme].[Duracion] AS [Duracion], 
+[vConsultaOrdenesFirme].[Secuencia] AS [Secuencia], 
+[vConsultaOrdenesFirme].[Código Rueda] AS [Código Rueda], 
+[vConsultaOrdenesFirme].[PosicionCompraVenta] AS [PosicionCompraVenta], 
+[vConsultaOrdenesFirme].[NroOperacionVinculada] AS [NroOperacionVinculada]
+FROM [dbo].[vConsultaOrdenesFirme] AS [vConsultaOrdenesFirme]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VOPERACIONES" EntityType="Self.VOPERACIONES" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[VOPERACIONES].[ID] AS [ID], 
+[VOPERACIONES].[CodigoISIN] AS [CodigoISIN], 
+[VOPERACIONES].[ValorNominalTotal] AS [ValorNominalTotal], 
+[VOPERACIONES].[CantidadTitulos] AS [CantidadTitulos], 
+[VOPERACIONES].[MontoLimpio] AS [MontoLimpio], 
+[VOPERACIONES].[MontoSucio] AS [MontoSucio], 
+[VOPERACIONES].[PrecioLimpio] AS [PrecioLimpio], 
+[VOPERACIONES].[Yield] AS [Yield], 
+[VOPERACIONES].[PrecioSucio] AS [PrecioSucio], 
+[VOPERACIONES].[FechaCierre] AS [FechaCierre], 
+[VOPERACIONES].[FechaValor] AS [FechaValor], 
+[VOPERACIONES].[NombrePuestoComprador] AS [NombrePuestoComprador], 
+[VOPERACIONES].[NombrePuestoVendedor] AS [NombrePuestoVendedor], 
+[VOPERACIONES].[TipoOperacion] AS [TipoOperacion], 
+[VOPERACIONES].[NombreMercado] AS [NombreMercado], 
+[VOPERACIONES].[PuestoComprador] AS [PuestoComprador], 
+[VOPERACIONES].[PuestoVendedor] AS [PuestoVendedor], 
+[VOPERACIONES].[Estatus] AS [Estatus]
+FROM [dbo].[VOPERACIONES] AS [VOPERACIONES]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VOrdenesFirmePropias" EntityType="Self.VOrdenesFirmePropias" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[VOrdenesFirmePropias].[Nemotecnico] AS [Nemotecnico], 
+[VOrdenesFirmePropias].[ISIN] AS [ISIN], 
+[VOrdenesFirmePropias].[MonedaLiquidacion] AS [MonedaLiquidacion], 
+[VOrdenesFirmePropias].[NominalUnitario] AS [NominalUnitario], 
+[VOrdenesFirmePropias].[TasaCupon] AS [TasaCupon], 
+[VOrdenesFirmePropias].[FechaPostura] AS [FechaPostura], 
+[VOrdenesFirmePropias].[HoraPostura] AS [HoraPostura], 
+[VOrdenesFirmePropias].[ValorNominal] AS [ValorNominal], 
+[VOrdenesFirmePropias].[ValorTransado] AS [ValorTransado], 
+[VOrdenesFirmePropias].[Precio] AS [Precio], 
+[VOrdenesFirmePropias].[Rendimiento] AS [Rendimiento], 
+[VOrdenesFirmePropias].[HoraUltimaModificacion] AS [HoraUltimaModificacion], 
+[VOrdenesFirmePropias].[PuestodeBolsa] AS [PuestodeBolsa], 
+[VOrdenesFirmePropias].[Secuencia] AS [Secuencia], 
+[VOrdenesFirmePropias].[CODRUEDA] AS [CODRUEDA], 
+[VOrdenesFirmePropias].[PosicionCompraVenta] AS [PosicionCompraVenta], 
+[VOrdenesFirmePropias].[Duracion] AS [Duracion], 
+[VOrdenesFirmePropias].[PlazoLiquidacion] AS [PlazoLiquidacion], 
+[VOrdenesFirmePropias].[FechaLiquidacion] AS [FechaLiquidacion], 
+[VOrdenesFirmePropias].[NroOperacionVinculada] AS [NroOperacionVinculada]
+FROM [dbo].[VOrdenesFirmePropias] AS [VOrdenesFirmePropias]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vUsuarios" EntityType="Self.vUsuarios" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[vUsuarios].[NOMBRE] AS [NOMBRE], 
+[vUsuarios].[NOMBREENTIDADID] AS [NOMBREENTIDADID], 
+[vUsuarios].[NOMBREENTIDAD] AS [NOMBREENTIDAD], 
+[vUsuarios].[SERVICIO] AS [SERVICIO], 
+[vUsuarios].[TOKEN] AS [TOKEN]
+FROM [dbo].[vUsuarios] AS [vUsuarios]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

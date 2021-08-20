@@ -1,0 +1,135 @@
+﻿@model IEnumerable<WsBVRD.VOrdenesFirmePropias>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nemotecnico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonedaLiquidacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NominalUnitario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TasaCupon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaPostura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraPostura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorNominal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rendimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraUltimaModificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PuestodeBolsa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Secuencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CODRUEDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duracion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlazoLiquidacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaLiquidacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NroOperacionVinculada)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nemotecnico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonedaLiquidacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NominalUnitario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TasaCupon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaPostura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraPostura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorNominal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rendimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraUltimaModificacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PuestodeBolsa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Secuencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CODRUEDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duracion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlazoLiquidacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaLiquidacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NroOperacionVinculada)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
